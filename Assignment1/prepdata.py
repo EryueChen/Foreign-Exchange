@@ -13,11 +13,14 @@ last_line = None
 last_avg = 0
 
 for root, dir, files in os.walk(sys.argv[1]):
+	#Traverse the dataset directory
 	for items in fnmatch.filter(files, "*USD-*.zip"):
 		zfile = zipfile.ZipFile(root + "/" + items)
 		for finfo in zfile.infolist():
+			#Read lines from zipfile
 			file = zfile.open(finfo)
 			for line in file:
+				#Parse lines and calculate the prices 
 				currency, timestamp, bid, ask = line.split(",")
 				date = timestamp.split(":")[0]
 				mid = (float(bid) + float(ask)) / 2
@@ -29,6 +32,7 @@ for root, dir, files in os.walk(sys.argv[1]):
 					current_spread += spread
 					current_count += 1
 				else:
+					#If the timestamp is different from previous one, output the previous one
 					if (current_date):
 						if (last_line):
 							if (current_sum / current_count > last_avg):
