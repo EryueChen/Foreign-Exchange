@@ -1,4 +1,4 @@
-1. Run the code
+1 Run the code
 
 python prepdata.py $FXDATA_DIRECTORY > output
 
@@ -6,11 +6,11 @@ sort output -t ',' -k 1 > sorted_output
 
 cat sorted_output | python merge_currency.py > featured_data
 
-2. Label
+2 Label
 
 The label is the directionality of price in next hour. 1 represents increase, 0 represents decrease
 
-3. Feature description
+3 Feature description
 
 1) Timestamp: The timestamp based on hour
 
@@ -30,7 +30,7 @@ The label is the directionality of price in next hour. 1 represents increase, 0 
 
 9) AUD/USD Directionality: The directionality of AUD/USD comparing to last hour. 1 represents increase, 0 represents decrease
 
-4. File Description
+4 File Description
 
 1) prepdata.py: This code traverses the whole dataset and calculates features 3, 4, 5, 6. Also, it compares the average price with next hour as the label.
 
