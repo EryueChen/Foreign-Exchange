@@ -22,11 +22,13 @@ The updated features are listed as follow:
 
 6) AUD/USD Directionality: The directionality of AUD/USD comparing to last hour. 1 represents increase, 0 represents decrease
 
+
 2. Generate the decision tree
 
 1) Use a recursive DFS method to generate the decision tree. 
 
 2) Use the decision tree to test the correctness. 
+
 
 3. Experiment
 The training dataset has 30374 lines of data.
