@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.Random;
 
 import config.Params;
 import struct.TreeNode;
@@ -55,6 +56,9 @@ public class BuildTree {
 		    //Read lines from file and store the counts of different feature-label combination
 		    String line;
 		    while ((line = br.readLine()) != null) {
+		    	Random random = new Random();
+				int r = random.nextInt(3);
+				if (r % 3 == 0) continue;
 		        String[] features = line.split(",");
 		        for (int i = 0; i < all.size(); i++) {
 		        	if (restset.contains(all.get(i))) {
