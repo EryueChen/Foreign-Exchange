@@ -70,7 +70,7 @@ The first part of feature is the pixels of rescaled images. The images are resca
 
 The second one is described in the previous section as the ratio of the width by length of the largest region to describe the image. It can somehow represent the shape of the image.
 
-The third part of feature is extracted from the SIFT algorithm. SIFT can extract interesting points from the image, which can be used to identify the object with reliable recognition. These points are detectable under condition changes such as scaling, noise. They usually lie on high-constrast regions of the image, such as edges.
+The third part of feature is extracted from the SIFT algorithm. SIFT can extract interesting points from the image, which can be used to identify the object with reliable recognition. These points are detectable under condition changes and invariant to uniform scaling, orientation, distortion and illumination changes. They usually lie on high-constrast regions of the image, such as edges.
 
 The fourth part of feature is extracted from TAS (Threshold Adjacency Statistics). It was first proposed in application to classification of protein sub-cellular localization images. TAS removes the need for cropping of individual cells from images, and are an order of magnitude faster to calculate than other commonly used statistics while providing comparable or better classification accuracy, both essential requirements for application to large-scale approaches.
 
@@ -207,7 +207,9 @@ def test(X, y, namesClasses):
 
 The error rate of random forest depends on the correlation between any two trees in the forest and the strength of each individual tree in the forest. Increasing the correlation increases the forest error rate. Increasing the strength of the individual trees decreases the forest error rate.
 
-The features used now covers only general cases and did not include special features which may also help to increase accuracy. Besides, some classes may have similar characteristics that cannot be separated very definitely using the features now. Both reasons may cause degrades in accuracy.
+The features used now covers only general cases and did not include special features which may also help to increase accuracy. Besides, some classes may have similar characteristics that cannot be separated very definitely using the features now. 
+
+The images in different classes may be similar while images in the same classes may be very different with each other. Besides, there's some subclasses called other, which contains not uniform images in the class.
 
 ## Conclusion
 
